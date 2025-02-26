@@ -74,6 +74,7 @@ jobs:
           echo "# This file is generated or updated by the cloudzilla deploy workflow" >> .env
           # get the appropriate branch scoped env vars and stript the scoping prefix
           echo "REACT_APP_FOOD_API_KEY=${{ secrets.CZ_BRANCH_MAIN_REACT_APP_FOOD_API_KEY }}" >> .env
+          echo "REACT_APP_FOOD_API_KEY=${{ secrets.CZ_BRANCH_MAIN_REACT_APP_FOOD_API_KEY }}" >> .env
           # remove duplicates keeping the items at the bottom of the file
           tac .env | awk -F'=' '!seen[$1]++' | tac > .env.tmp2 && mv .env.tmp2 .env
 
